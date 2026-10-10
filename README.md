@@ -1,79 +1,144 @@
-# 🎵 MP3 Trimmer – Browser-Based Audio Editor
+# Toneva: MP3 Trimmer
 
-A modern, in-browser audio editing tool that lets you **trim MP3 files, apply effects, preview changes in real-time, and export high-quality audio** — all without installing any software.
+Trim your MP3 files in seconds. Upload a song, choose the part you want, and download your clip.
 
-Built with **React + Tailwind CSS + FFmpeg.wasm + Web Audio API**.
-
----
-
-## 🚀 Features
-
-### 🎧 Core Audio Editing
-- Trim audio (start & end selection)
-- Fade In / Fade Out effects
-- Playback speed control (0.75x → 2x)
-- Bass boost (live preview via Web Audio API)
-- Treble support (FFmpeg processing ready)
-
-### 🎙 Live Preview Engine
-- Instant audio preview without exporting
-- Play / Pause control
-- Spacebar shortcut support
-- Real-time speed & bass adjustments
-- Trim-range playback loop
-
-### ⚡ Smart UX
-- Drag-friendly timeline sliders
-- Duration display in mm:ss format
-- Quick presets (Podcast / Reel / Bass Boost)
-- Responsive glassmorphism UI
-- Instant download after processing
-
-### 📁 Input Support
-- Upload local MP3 files
-- (Optional) URL input support for media import
+🔗 **Live demo:** [https://toneva.vercel.app](https://toneva.vercel.app/)
 
 ---
 
-## 🧠 How It Works
+## About
 
-### 1. Upload
-User uploads an MP3 file or provides a media URL.
+Sometimes you only need a small part of a song or audio file. Maybe it's a ringtone, a short clip, or just a way to cut out the silence. Toneva makes that simple. There's no complicated software to install.
 
-### 2. Preview
-Audio is played in-browser using:
-- HTML Audio API
-- Web Audio API (for bass boost + effects)
+## Features
 
-### 3. Edit
-User adjusts:
-- Start / End time
-- Bass / Treble
-- Fade In / Fade Out
-- Speed
+- Upload an MP3 file
+- Choose the start and end of the part you want to keep
+- Preview your clip before saving
+- Download the trimmed audio
+- Simple, clean interface
+- Works on desktop and mobile browsers
 
-### 4. Process
-FFmpeg.wasm processes audio in-browser:
+<!-- Edit this list to match what the app really does. Add things like these if they apply:
+- Waveform view
+- Fade in and fade out
+- Drag handles to select the range
+- Support for other formats (WAV, OGG, M4A)
+- Runs fully in the browser, so your file is never uploaded -->
 
-### 5. Export
-Final processed audio is downloaded as MP3.
+## How to Use
 
----
+1. Open the app.
+2. Upload your MP3 file.
+3. Set the start and end points of the part you want.
+4. Play the preview to check it.
+5. Click **Trim** (or **Download**) to save your clip.
 
-## 🧱 Tech Stack
+<!-- Update to match your real steps. -->
 
-- ⚛️ React (Frontend)
-- 🎨 Tailwind CSS (UI)
-- 🎧 Web Audio API (Live preview effects)
-- 🎬 FFmpeg.wasm (Audio processing engine)
-- 🧠 JavaScript (Core logic)
+## Built With
 
----
+<!-- Replace with your real stack -->
+- HTML, CSS, and JavaScript
+- Web Audio API
+- Deployed on [Vercel](https://vercel.com/)
 
-## 📦 Installation
+## Getting Started
+
+Follow these steps to run the project on your computer.
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/mudassarsindoli/mp3-trimmer
-cd mp3-trimmer
+git clone https://github.com/your-username/toneva.git
+```
+
+### 2. Go into the project folder
+
+```bash
+cd toneva
+```
+
+### 3. Install dependencies
+
+```bash
 npm install
+```
+
+### 4. Start the project
+
+```bash
 npm run dev
+```
+
+Then open the local link shown in your terminal (usually `http://localhost:5173` or `http://localhost:3000`).
+
+<!-- If this is a plain HTML/CSS/JS project, remove steps 3 and 4 and just say: "Open index.html in your browser." -->
+
+## Supported Formats
+
+<!-- Update with what you really support -->
+
+| Type | Formats |
+|---|---|
+| Input | MP3 |
+| Output | MP3 |
+
+## Privacy
+
+<!-- Keep this only if it is true for your app. -->
+Your audio is processed in your browser. Files are not uploaded to any server.
+
+## Tips
+
+- Use the preview to check the start and end points before you download.
+- Shorter clips process faster.
+- Keep a copy of your original file in case you want to trim it again.
+
+## Project Structure
+
+```
+├── public/        # Images and static files
+├── src/           # Source code
+├── index.html
+└── README.md
+```
+
+<!-- Update to match your actual folders -->
+
+## Deployment
+
+This project is deployed on Vercel. To deploy your own copy:
+
+1. Push the code to your GitHub account.
+2. Sign in to [Vercel](https://vercel.com/) and import the repository.
+3. Click **Deploy**.
+
+## Contributing
+
+Ideas, bug reports, and pull requests are welcome.
+
+1. Fork this repository
+2. Create a branch (`git checkout -b my-feature`)
+3. Commit your changes
+4. Push your branch
+5. Open a Pull Request
+
+## Roadmap
+
+<!-- Keep only what applies -->
+- [ ] Waveform view
+- [ ] Fade in and fade out
+- [ ] Support for WAV, OGG, and M4A
+- [ ] Merge multiple clips
+- [ ] Drag and drop upload
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Author
+
+Made by **Mudassar Sindoli(https://github.com/mudassarsindoli)**
+
+If you find this useful, please give it a ⭐ on GitHub.
