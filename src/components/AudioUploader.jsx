@@ -8,7 +8,7 @@ export default function AudioUploader({ onUpload }) {
       </span>
 
       <span className="text-sm font-semibold text-gray-700">
-        Tap to upload an MP3
+        Tap to upload your song or just drop it
       </span>
 
       <input

@@ -16,6 +16,7 @@ import {
   Activity,
 } from "lucide-react";
 import AudioUploader from "./components/AudioUploader";
+import SampleRingtones from "./components/SampleRingtones";
 import DualRangeSlider from "./components/DualRangeSlider";
 import SingleRangeSlider from "./components/SingleRangeSlider";
 import SelectGroup from "./components/SelectGroup";
@@ -356,26 +357,30 @@ function App() {
       <div className="flex-1 w-full overflow-y-auto bg-gradient-to-br from-violet-200 via-sky-100 to-rose-100 flex items-start justify-center p-3 sm:p-4 md:p-8">
         <div className="w-full max-w-3xl flex flex-col justify-center gap-5">
           {!audioUrl && (
-            <AudioUploader
-              onUpload={(f) => {
-                setFile(f);
+            <>
+              <AudioUploader
+                onUpload={(f) => {
+                  setFile(f);
 
-                const url = URL.createObjectURL(f);
-                setAudioUrl(url);
+                  const url = URL.createObjectURL(f);
+                  setAudioUrl(url);
 
-                const audio = document.createElement("audio");
-                audio.src = url;
+                  const audio = document.createElement("audio");
+                  audio.src = url;
 
-                audio.onloadedmetadata = () => {
-                  setDuration(audio.duration);
+                  audio.onloadedmetadata = () => {
+                    setDuration(audio.duration);
 
-                  setForm((prev) => ({
-                    ...prev,
-                    end: Math.min(30, audio.duration),
-                  }));
-                };
-              }}
-            />
+                    setForm((prev) => ({
+                      ...prev,
+                      end: Math.min(30, audio.duration),
+                    }));
+                  };
+                }}
+              />
+
+              <SampleRingtones />
+            </>
           )}
 
           {audioUrl && (
