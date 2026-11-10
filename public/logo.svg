@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="toneva-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d946ef" />
+      <stop offset="0.55" stop-color="#ec4899" />
+      <stop offset="1" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="toneva-shine" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="16" fill="url(#toneva-grad)" />
+  <rect width="64" height="64" rx="16" fill="url(#toneva-shine)" />
+
+  <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+    <path d="M20 40 V24 L21 24" opacity="0" />
+    <!-- waveform bars -->
+    <path d="M14 36 V28" />
+    <path d="M20 40 V22" />
+    <path d="M26 36 V30" />
+  </g>
+
+  <!-- music note -->
+  <g fill="#ffffff">
+    <circle cx="35" cy="44" r="6.5" />
+    <rect x="39.5" y="14" width="3.6" height="31" rx="1.8" />
+    <path d="M43.1 14 C50 16.5 51.5 22 50.4 27 C49.6 23 47 20.3 43.1 19.2 Z" />
+  </g>
+</svg>

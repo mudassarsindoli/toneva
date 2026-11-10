@@ -5,13 +5,19 @@ const ffmpeg = new FFmpeg();
 
 export async function trimAudio(
   file,
-  start,
-  end,
-  fadeIn = 0,
-  fadeOut = 0,
-  bass = 0,
-  treble = 0,
-  speed = 1
+  {
+    start,
+    end,
+    fadeIn = 0,
+    fadeOut = 0,
+    bass = 0,
+    treble = 0,
+    speed = 1,
+    pitch = 1,
+    volume = 1,
+    echo = false,
+    normalize = false,
+  }
 ) {
   if (!ffmpeg.loaded) {
     await ffmpeg.load();
@@ -25,6 +31,12 @@ export async function trimAudio(
 
   const bassDb = Number(bass);
   const trebleDb = Number(treble);
+  const volumeGain = Number(volume);
+
+  const pitchRate = Math.max(
+    0.5,
+    Math.min(2, Number(pitch))
+  );
 
   const speedRate = Math.max(
     0.5,
@@ -69,9 +81,31 @@ if (trebleDb !== 0) {
   filters.push(`treble=g=${trebleDb}`);
 }
 
+// Volume
+if (volumeGain !== 1) {
+  filters.push(`volume=${volumeGain}`);
+}
+
+// Pitch (shift pitch, then compensate tempo back to normal)
+if (pitchRate !== 1) {
+  filters.push(`asetrate=44100*${pitchRate}`);
+  filters.push(`aresample=44100`);
+  filters.push(`atempo=${(1 / pitchRate).toFixed(4)}`);
+}
+
 // Speed
 if (speedRate !== 1) {
   filters.push(`atempo=${speedRate}`);
+}
+
+// Echo
+if (echo) {
+  filters.push(`aecho=0.6:0.5:500:0.4`);
+}
+
+// Loudness normalization
+if (normalize) {
+  filters.push(`dynaudnorm=f=150:g=15`);
 }
 
 // Fade In
@@ -96,21 +130,12 @@ if (fadeOutSec > 0) {
 }
 
   const command = [
-  "-i",
-  "input.mp3",
-  "-af",
-  filters.join(","),
-  "output.mp3",
-];
-
-  if (filters.length > 0) {
-    command.push(
-      "-af",
-      filters.join(",")
-    );
-  }
-
-  command.push("output.mp3");
+    "-i",
+    "input.mp3",
+    "-af",
+    filters.join(","),
+    "output.mp3",
+  ];
 
   console.log(
     "FFmpeg Command:",
